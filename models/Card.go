@@ -2,32 +2,37 @@ package models
 
 import "fmt"
 
-var kindTypes = [...]string {"spades", "hearts", "diamond"}
+var suitTypes = [4]string {"spades", "hearts", "diamonds", "clubs"}
+var valueTypes = [13]string { "Ace", "2", "3", "4", "5","6", "7", "8", "9", "10", "Jack", "Queen", "King"}
 
-const (
-	minNumber int8 = 1
-	maxNumber = 9
-)
 type Card struct {
-	kind string
-	number int8
+	suit  string
+	value string
 }
 
-func NewCard(kind string, number int8) *Card {
-	if minNumber <= number && number <= maxNumber{
+func NewCard(suit string, value string) *Card {
 
-		for _, element := range kindTypes{
-			if kind == element{
-				return &Card{kind: kind, number: number}
-				break
+	var returningCard *Card
+
+	// checks if suit is possible suit type
+	for _, suitType := range suitTypes {
+		if suit == suitType {
+
+			// checks if value is possible value type
+			for _, valueType := range valueTypes{
+				if valueType == value {
+					returningCard =  &Card{suit: suit, value: value}
+					break
+				}
 			}
+			break
 		}
-
 	}
-	return nil
+
+	return returningCard
 }
 
 func (c *Card) String() string {
-	return fmt.Sprintf("Card{kind=%s, number=%v}",c.kind,c.number)
+	return fmt.Sprintf("Card{suit=%s, value=%v}",c.suit,c.value)
 }
 

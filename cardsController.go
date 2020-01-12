@@ -6,6 +6,6 @@ import (
 )
 
 func NewDeck() {
-	card := models.NewCard("hearts", 3)
+	card := models.NewCard("hearts", "3")
 	fmt.Println(card)
 }
