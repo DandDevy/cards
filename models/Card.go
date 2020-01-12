@@ -1,9 +1,19 @@
+/*
+ * Created by Daniel Ashcroft on the  12 1 2020.
+ */
+
 package models
 
 import "fmt"
 
-var suitTypes = [4]string {"spades", "hearts", "diamonds", "clubs"}
-var valueTypes = [13]string { "Ace", "2", "3", "4", "5","6", "7", "8", "9", "10", "Jack", "Queen", "King"}
+const (
+	numberOfSuitTypes = 4
+	numberOfValueTypes = 13
+)
+
+// the list of possible suits and values allowed
+var suitTypes = [numberOfSuitTypes]string {"spades", "hearts", "diamonds", "clubs"}
+var valueTypes = [numberOfValueTypes]string { "Ace", "2", "3", "4", "5","6", "7", "8", "9", "10", "Jack", "Queen", "King"}
 
 type Card struct {
 	suit  string
