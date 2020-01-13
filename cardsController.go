@@ -12,10 +12,14 @@ import (
 // Creates a new Deck
 func NewDeck() {
 	card := models.NewCard("hearts", "3")
-	deck := models.NewDeck()
-	deck.AddCard(card)
-	deck.AddCard(card)
-	deck.AddCard(card)
+	deck := models.NewEmptyDeck()
+	for i := 1; i < 500; i++{
+		deck.AddCard(card)
+	}
 	deck.AddCard(card)
 	fmt.Println(deck)
+	fmt.Println(len(deck.Cards()))
+	fmt.Println(models.SuitTypes)
+
+	deck = models.NewFullDeck()
 }

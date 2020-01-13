@@ -12,8 +12,8 @@ const (
 )
 
 // the list of possible suits and values allowed
-var suitTypes = [numberOfSuitTypes]string {"spades", "hearts", "diamonds", "clubs"}
-var valueTypes = [numberOfValueTypes]string { "Ace", "2", "3", "4", "5","6", "7", "8", "9", "10", "Jack", "Queen", "King"}
+var SuitTypes = [numberOfSuitTypes]string {"spades", "hearts", "diamonds", "clubs"}
+var ValueTypes = [numberOfValueTypes]string {"Ace", "2", "3", "4", "5","6", "7", "8", "9", "10", "Jack", "Queen", "King"}
 
 // A card that is inside of a deck with a suit and a value
 type Card struct {
@@ -21,17 +21,17 @@ type Card struct {
 	value string
 }
 
-// If the suit and the value details are present in suitTypes and valueTypes then this constructor will return a card
+// If the suit and the value details are present in SuitTypes and ValueTypes then this constructor will return a card
 func NewCard(suit string, value string) *Card {
 
 	var returningCard *Card
 
 	// checks if suit is possible suit type
-	for _, suitType := range suitTypes {
+	for _, suitType := range SuitTypes {
 		if suit == suitType {
 
 			// checks if value is possible value type
-			for _, valueType := range valueTypes{
+			for _, valueType := range ValueTypes {
 				if valueType == value {
 					returningCard =  &Card{suit: suit, value: value}
 					break
